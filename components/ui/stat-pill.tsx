@@ -14,7 +14,7 @@ export function StatPill({ value, label }: StatPillProps) {
     >
       <span
         className="text-2xl font-bold font-serif"
-        style={{ color: "var(--site-accent)" }}
+        style={{ color: "var(--site-text)" }}
       >
         {value}
       </span>

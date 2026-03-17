@@ -89,10 +89,10 @@ export function AboutSection() {
               </div>
 
               {/* Corner ticks */}
-              <div className="absolute top-3 left-3 w-3 h-3 border-t border-l z-10" style={{ borderColor: "var(--site-border-hover)" }} />
-              <div className="absolute top-3 right-3 w-3 h-3 border-t border-r z-10" style={{ borderColor: "var(--site-border-hover)" }} />
-              <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l z-10" style={{ borderColor: "var(--site-border-hover)" }} />
-              <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r z-10" style={{ borderColor: "var(--site-border-hover)" }} />
+              <div className="absolute top-3 left-3 w-3 h-3 border-t border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+              <div className="absolute top-3 right-3 w-3 h-3 border-t border-r z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+              <div className="absolute bottom-3 left-3 w-3 h-3 border-b border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+              <div className="absolute bottom-3 right-3 w-3 h-3 border-b border-r z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
             </div>
           </motion.div>
         </div>

@@ -35,7 +35,7 @@ export function ExperienceSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-0 top-2 bottom-2 w-px" style={{ background: "var(--site-border)" }} />
+          <div className="absolute left-0 top-2 bottom-2 w-px" style={{ background: "var(--site-accent)", opacity: 0.3 }} />
 
           <div className="space-y-12">
             {EXPERIENCE.map((item, idx) => (
@@ -54,7 +54,7 @@ export function ExperienceSection() {
                 />
 
                 <div
-                  className="group p-6 md:p-8 rounded-xl transition-all duration-300"
+                  className="group card-hover-glow p-6 md:p-8 rounded-xl"
                   style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
                 >
                   {/* Header row */}

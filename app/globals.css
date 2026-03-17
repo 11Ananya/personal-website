@@ -44,9 +44,9 @@
   --site-card-hover: rgba(255, 255, 255, 0.05);
   --site-dot: rgba(255, 255, 255, 0.07);
   --site-vignette: #0a0a0a;
-  /* Deep wine accent */
-  --site-accent: #b83d62;
-  --site-accent-muted: rgba(143, 44, 79, 0.14);
+  /* Steel blue accent */
+  --site-accent: #4a7cb8;
+  --site-accent-muted: rgba(74, 124, 184, 0.16);
 
   --bg-base: var(--site-bg);
   --bg-deep: var(--site-bg-alt);
@@ -73,7 +73,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.6 0.18 300);
+  --ring: oklch(1 0 0 / 20%);
   --radius: 0.625rem;
 }
 
@@ -86,15 +86,15 @@
   --site-text: #1a1a1a;
   --site-text-2: #4a4a4a;
   --site-text-3: #6b6868;
-  --site-border: rgba(0, 0, 0, 0.09);
-  --site-border-hover: rgba(0, 0, 0, 0.18);
-  --site-card: rgba(0, 0, 0, 0.03);
-  --site-card-hover: rgba(0, 0, 0, 0.05);
-  --site-dot: rgba(0, 0, 0, 0.07);
+  --site-border: rgba(0, 0, 0, 0.10);
+  --site-border-hover: rgba(0, 0, 0, 0.20);
+  --site-card: rgba(0, 0, 0, 0.04);
+  --site-card-hover: rgba(0, 0, 0, 0.07);
+  --site-dot: rgba(0, 0, 0, 0.08);
   --site-vignette: #faf7f4;
-  /* Deeper wine for light bg */
-  --site-accent: #8f2c4f;
-  --site-accent-muted: rgba(143, 44, 79, 0.12);
+  /* Steel blue accent */
+  --site-accent: #2a5f94;
+  --site-accent-muted: rgba(42, 95, 148, 0.14);
 
   --background: oklch(0.97 0.006 60);
   --foreground: oklch(0.12 0 0);
@@ -139,12 +139,11 @@ body {
   background: var(--site-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--site-accent);
-  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.32);
 }
 
 /* ============================================
@@ -270,10 +269,18 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Section heading italic accent — blush pink */
+/* Section heading italic accent */
 .gradient-text {
   font-style: italic;
-  color: var(--site-accent);
+  color: var(--site-text);
+}
+
+/* Hover glow on cards */
+.card-hover-glow {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card-hover-glow:hover {
+  box-shadow: 0 0 0 1px var(--site-border-hover), 0 8px 40px rgba(74, 124, 184, 0.10);
 }
 
 .marquee-wrapper {

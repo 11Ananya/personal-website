@@ -37,8 +37,8 @@ export function Navbar() {
           href="#"
           className="text-sm font-bold font-serif tracking-wider mr-2 transition-colors duration-200"
           style={{ color: "var(--site-text)" }}
-          onMouseEnter={e => (e.currentTarget.style.color = "var(--site-accent)")}
-          onMouseLeave={e => (e.currentTarget.style.color = "var(--site-text)")}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
         >
           AD
         </a>
@@ -75,7 +75,7 @@ export function Navbar() {
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLElement).style.borderColor = "var(--site-accent)";
-              (e.currentTarget as HTMLElement).style.color = "var(--site-accent)";
+              (e.currentTarget as HTMLElement).style.color = "var(--site-text)";
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLElement).style.borderColor = "var(--site-border)";

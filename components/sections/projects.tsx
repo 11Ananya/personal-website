@@ -57,9 +57,9 @@ export function ProjectsSection() {
               viewport={viewportConfig}
             >
               <div
-                className={`group flex flex-col ${
+                className={`group card-hover-glow flex flex-col ${
                   project.reverse ? "md:flex-row-reverse" : "md:flex-row"
-                } rounded-2xl overflow-hidden transition-all duration-300`}
+                } rounded-2xl overflow-hidden`}
                 style={{ border: "1px solid var(--site-border)" }}
               >
                 {/* Content panel */}
@@ -81,7 +81,7 @@ export function ProjectsSection() {
                     style={{ color: "var(--site-text)" }}
                   >
                     {project.name}
-                    <span style={{ color: "var(--site-accent)" }}>.</span>
+                    <span style={{ color: "var(--site-text-3)" }}>.</span>
                   </h3>
 
                   <p
@@ -103,7 +103,7 @@ export function ProjectsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium group/link transition-opacity duration-200 w-fit"
-                      style={{ color: "var(--site-accent)" }}
+                      style={{ color: "var(--site-text-2)" }}
                       onMouseEnter={e => ((e.currentTarget as HTMLElement).style.opacity = "0.7")}
                       onMouseLeave={e => ((e.currentTarget as HTMLElement).style.opacity = "1")}
                     >
@@ -130,10 +130,10 @@ export function ProjectsSection() {
                   />
 
                   {/* Corner brackets */}
-                  <div className="absolute top-4 left-4 w-5 h-5 border-t border-l z-10" style={{ borderColor: "var(--site-border)" }} />
-                  <div className="absolute top-4 right-4 w-5 h-5 border-t border-r z-10" style={{ borderColor: "var(--site-border)" }} />
-                  <div className="absolute bottom-4 left-4 w-5 h-5 border-b border-l z-10" style={{ borderColor: "var(--site-border)" }} />
-                  <div className="absolute bottom-4 right-4 w-5 h-5 border-b border-r z-10" style={{ borderColor: "var(--site-border)" }} />
+                  <div className="absolute top-4 left-4 w-5 h-5 border-t border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+                  <div className="absolute top-4 right-4 w-5 h-5 border-t border-r z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+                  <div className="absolute bottom-4 left-4 w-5 h-5 border-b border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
+                  <div className="absolute bottom-4 right-4 w-5 h-5 border-b border-r z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
 
                   {/* Large index number */}
                   <div className="absolute inset-0 flex items-center justify-center z-10">

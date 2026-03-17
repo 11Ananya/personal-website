@@ -15,8 +15,8 @@ const DARK_VARS: Record<string, string> = {
   "--site-card-hover": "rgba(255,255,255,0.05)",
   "--site-dot": "rgba(255,255,255,0.07)",
   "--site-vignette": "#0a0a0a",
-  "--site-accent": "#b83d62",
-  "--site-accent-muted": "rgba(143,44,79,0.14)",
+  "--site-accent": "#4a7cb8",
+  "--site-accent-muted": "rgba(74,124,184,0.16)",
 };
 
 const LIGHT_VARS: Record<string, string> = {
@@ -31,8 +31,8 @@ const LIGHT_VARS: Record<string, string> = {
   "--site-card-hover": "rgba(0,0,0,0.07)",
   "--site-dot": "rgba(0,0,0,0.08)",
   "--site-vignette": "#faf7f4",
-  "--site-accent": "#8f2c4f",
-  "--site-accent-muted": "rgba(143,44,79,0.12)",
+  "--site-accent": "#2a5f94",
+  "--site-accent-muted": "rgba(42,95,148,0.14)",
 };
 
 function applyTheme(light: boolean) {

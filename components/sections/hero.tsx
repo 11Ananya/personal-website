@@ -17,6 +17,14 @@ export function HeroSection() {
         <div className="dot-grid" />
         <div className="dot-grid-vignette" />
         <div className="noise-overlay" />
+        {/* Ambient blue glow — far light source, not on text */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            inset: 0,
+            background: "radial-gradient(ellipse 65% 55% at 68% 38%, rgba(74,124,184,0.07) 0%, transparent 70%)",
+          }}
+        />
       </div>
 
       {/* Main card */}

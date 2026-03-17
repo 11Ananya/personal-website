@@ -12,7 +12,7 @@ interface SplineSceneProps {
 function SplineLoader() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-8 h-8 rounded-full border-2 border-[#8b5cf6] border-t-transparent animate-spin" />
+      <div className="w-8 h-8 rounded-full border-2 border-[#4a7cb8] border-t-transparent animate-spin" />
     </div>
   );
 }

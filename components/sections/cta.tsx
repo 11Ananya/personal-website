@@ -19,6 +19,13 @@ export function CTASection() {
           backgroundSize: "28px 28px",
         }}
       />
+      {/* Ambient blue glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 60% at 50% 60%, rgba(74,124,184,0.06) 0%, transparent 65%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <motion.div
