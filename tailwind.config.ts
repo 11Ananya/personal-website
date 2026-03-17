@@ -111,6 +111,10 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        aurora: {
+          from: { backgroundPosition: "50% 50%, 50% 50%" },
+          to: { backgroundPosition: "350% 50%, 350% 50%" },
+        },
       },
       animation: {
         "chromatic-slow-1":
@@ -124,6 +128,7 @@ const config: Config = {
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        aurora: "aurora 60s linear infinite",
       },
     },
   },
