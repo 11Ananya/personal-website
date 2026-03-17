@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { TechPill } from "@/components/ui/tech-pill";
 import { PixelCanvas } from "@/components/ui/pixel-canvas";
@@ -116,18 +117,31 @@ export function ProjectsSection() {
                   )}
                 </div>
 
-                {/* Visual panel — PixelCanvas + index number */}
+                {/* Visual panel */}
                 <div
                   className="w-full md:w-64 lg:w-80 min-h-[200px] md:min-h-0 relative overflow-hidden flex-shrink-0"
                   style={{ background: "var(--site-bg)" }}
                 >
-                  {/* Pixel animation — triggers on hover of this panel */}
-                  <PixelCanvas
-                    gap={9}
-                    speed={22}
-                    colors={PIXEL_PALETTES[idx % PIXEL_PALETTES.length]}
-                    variant="default"
-                  />
+                  {project.logo ? (
+                    /* Logo display */
+                    <div className="absolute inset-0 flex items-center justify-center p-8">
+                      <Image
+                        src={project.logo}
+                        alt={project.name}
+                        width={200}
+                        height={200}
+                        className="object-contain w-full h-full max-w-[160px] max-h-[160px] opacity-90"
+                      />
+                    </div>
+                  ) : (
+                    /* Pixel animation fallback */
+                    <PixelCanvas
+                      gap={9}
+                      speed={22}
+                      colors={PIXEL_PALETTES[idx % PIXEL_PALETTES.length]}
+                      variant="default"
+                    />
+                  )}
 
                   {/* Corner brackets */}
                   <div className="absolute top-4 left-4 w-5 h-5 border-t border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
@@ -135,20 +149,17 @@ export function ProjectsSection() {
                   <div className="absolute bottom-4 left-4 w-5 h-5 border-b border-l z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
                   <div className="absolute bottom-4 right-4 w-5 h-5 border-b border-r z-10" style={{ borderColor: "var(--site-accent)", opacity: 0.5 }} />
 
-                  {/* Large index number */}
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <span
-                      className="font-serif font-bold select-none"
-                      style={{
-                        fontSize: "120px",
-                        lineHeight: 1,
-                        color: "var(--site-text)",
-                        opacity: 0.10,
-                      }}
-                    >
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                  </div>
+                  {/* Large index number (only when no logo) */}
+                  {!project.logo && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                      <span
+                        className="font-serif font-bold select-none"
+                        style={{ fontSize: "120px", lineHeight: 1, color: "var(--site-text)", opacity: 0.10 }}
+                      >
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

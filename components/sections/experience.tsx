@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { TechPill } from "@/components/ui/tech-pill";
 import { EXPERIENCE } from "@/lib/data";
 import { fadeInUp, staggerContainer, cardReveal, viewportConfig } from "@/lib/motion";
@@ -58,14 +59,30 @@ export function ExperienceSection() {
                   style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
                 >
                   {/* Header row */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-6">
-                    <div>
-                      <h3 className="font-serif text-xl font-bold text-white">
-                        {item.company}
-                      </h3>
-                      <p className="font-serif italic text-base text-neutral-400 mt-0.5">
-                        {item.role}
-                      </p>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                    <div className="flex items-start gap-4">
+                      {item.logo && (
+                        <div
+                          className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center"
+                          style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+                        >
+                          <Image
+                            src={item.logo}
+                            alt={item.company}
+                            width={40}
+                            height={40}
+                            className="object-contain w-10 h-10"
+                          />
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="font-serif text-xl font-bold text-white">
+                          {item.company}
+                        </h3>
+                        <p className="font-serif italic text-base text-neutral-400 mt-0.5">
+                          {item.role}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex flex-col items-start md:items-end gap-1">
                       <span className="text-xs font-mono text-neutral-500 whitespace-nowrap">

@@ -26,6 +26,7 @@ export interface ExperienceItem {
   location: string;
   bullets: string[];
   stack: string[];
+  logo?: string;
 }
 
 export interface ProjectItem {
@@ -34,6 +35,7 @@ export interface ProjectItem {
   stack: string[];
   href?: string;
   reverse?: boolean;
+  logo?: string;
 }
 
 export interface SkillItem {
@@ -103,6 +105,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       "Qwen",
       "BERT",
     ],
+    logo: "/logos/eon-media.png",
   },
   {
     company: "Talent4Assure",
@@ -123,6 +126,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       "WebSockets",
       "Chart.js",
     ],
+    logo: "/logos/talent4assure.png",
   },
 ];
 
@@ -134,6 +138,7 @@ export const PROJECTS: ProjectItem[] = [
     stack: ["React", "TypeScript", "Hono", "Supabase", "Claude Haiku API"],
     href: "https://infralens-nine.vercel.app/",
     reverse: false,
+    logo: "/logos/infralens.png",
   },
   {
     name: "3D Portfolio",
@@ -216,8 +221,7 @@ export const SKILLS: SkillGroup[] = [
 
 export const NAV_LINKS: NavLink[] = [
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
+  { label: "Work", href: "#work" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
@@ -227,8 +231,7 @@ export const FOOTER_COLS: FooterColumn[] = [
     title: "Navigate",
     links: [
       { label: "About", href: "#about" },
-      { label: "Experience", href: "#experience" },
-      { label: "Projects", href: "#projects" },
+      { label: "Work", href: "#work" },
       { label: "Skills", href: "#skills" },
     ],
   },
@@ -244,7 +247,7 @@ export const FOOTER_COLS: FooterColumn[] = [
     title: "Currently",
     links: [
       { label: "UWaterloo · Class of 2028", href: "#" },
-      { label: "Building · Shipping · Iterating", href: "#projects" },
+      { label: "Building · Shipping · Iterating", href: "#work" },
     ],
   },
 ];

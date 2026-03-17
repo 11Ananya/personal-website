@@ -2,8 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero";
 import { AboutSection } from "@/components/sections/about";
-import { ExperienceSection } from "@/components/sections/experience";
-import { ProjectsSection } from "@/components/sections/projects";
+import { WorkSection } from "@/components/sections/work";
 import { SkillsSection } from "@/components/sections/skills";
 import { CTASection } from "@/components/sections/cta";
 
@@ -13,8 +12,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
+      <WorkSection />
       <SkillsSection />
       <CTASection />
       <Footer />
