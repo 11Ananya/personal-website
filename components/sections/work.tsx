@@ -2,10 +2,60 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Briefcase, Code2 } from "lucide-react";
 import { TechPill } from "@/components/ui/tech-pill";
 import { EXPERIENCE, PROJECTS } from "@/lib/data";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/motion";
+
+const expCardStyle = {
+  background: "var(--site-card)",
+  border: "1px solid var(--site-border)",
+  boxShadow: "inset 3px 0 0 var(--site-accent)",
+};
+
+const projCardStyle = {
+  background: "rgba(255,255,255,0.02)",
+  border: "1px solid var(--site-border)",
+};
+
+function ExpLabel() {
+  return (
+    <span
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-widest w-fit"
+      style={{ background: "var(--site-accent-muted)", color: "var(--site-accent)" }}
+    >
+      <Briefcase size={8} />
+      Experience
+    </span>
+  );
+}
+
+function ProjLabel() {
+  return (
+    <span
+      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-widest w-fit border"
+      style={{ borderColor: "var(--site-border-hover)", color: "var(--site-text-3)" }}
+    >
+      <Code2 size={8} />
+      Project
+    </span>
+  );
+}
+
+function LinkBtn({ href, name }: { href: string; name: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`View ${name}`}
+      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
+      style={{ background: "var(--site-border)", color: "var(--site-text-2)" }}
+    >
+      <ArrowUpRight size={11} />
+    </a>
+  );
+}
 
 export function WorkSection() {
   const [eon, t4a] = EXPERIENCE;
@@ -44,14 +94,16 @@ export function WorkSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 md:grid-cols-4 gap-3 auto-rows-auto"
+          className="grid grid-cols-1 md:grid-cols-4 gap-3"
         >
 
-          {/* Eon Media — wide (2 col) */}
+          {/* ── ROW 1 ── */}
+
+          {/* Eon Media — wide experience */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-2 card-hover-glow rounded-2xl p-6 flex flex-col gap-4"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={expCardStyle}
           >
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
@@ -62,12 +114,12 @@ export function WorkSection() {
                   </div>
                 )}
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-accent)", opacity: 0.8 }}>Experience</p>
-                  <h3 className="font-serif text-lg font-bold text-white leading-tight">{eon.company}</h3>
+                  <ExpLabel />
+                  <h3 className="font-serif text-lg font-bold text-white mt-1 leading-tight">{eon.company}</h3>
                   <p className="font-serif italic text-sm text-neutral-400">{eon.role}</p>
                 </div>
               </div>
-              <span className="text-xs font-mono text-neutral-600 flex-shrink-0">{eon.period}</span>
+              <span className="text-xs font-mono text-neutral-600 flex-shrink-0 whitespace-nowrap">{eon.period}</span>
             </div>
             <ul className="space-y-1.5 flex-1">
               {eon.bullets.slice(0, 3).map((b, i) => (
@@ -82,11 +134,11 @@ export function WorkSection() {
             </div>
           </motion.div>
 
-          {/* InfraLens — square (1 col) */}
+          {/* InfraLens — project square */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-1 card-hover-glow rounded-2xl p-6 flex flex-col gap-3"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={projCardStyle}
           >
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-2">
@@ -97,17 +149,11 @@ export function WorkSection() {
                   </div>
                 )}
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-text-3)" }}>Project</p>
-                  <h3 className="font-serif text-base font-bold text-white leading-tight">{infralens.name}</h3>
+                  <ProjLabel />
+                  <h3 className="font-serif text-base font-bold text-white mt-1 leading-tight">{infralens.name}</h3>
                 </div>
               </div>
-              {infralens.href && (
-                <a href={infralens.href} target="_blank" rel="noopener noreferrer"
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
-                  style={{ background: "var(--site-border)", color: "var(--site-text-2)" }}>
-                  <ArrowUpRight size={11} />
-                </a>
-              )}
+              {infralens.href && <LinkBtn href={infralens.href} name={infralens.name} />}
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed flex-1 line-clamp-4">{infralens.description}</p>
             <div className="flex flex-wrap gap-1">
@@ -115,24 +161,18 @@ export function WorkSection() {
             </div>
           </motion.div>
 
-          {/* 3D Portfolio — square (1 col) */}
+          {/* 3D Portfolio — project square */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-1 card-hover-glow rounded-2xl p-6 flex flex-col gap-3"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={projCardStyle}
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-text-3)" }}>Project</p>
-                <h3 className="font-serif text-base font-bold text-white leading-tight">{portfolio.name}</h3>
+                <ProjLabel />
+                <h3 className="font-serif text-base font-bold text-white mt-1 leading-tight">{portfolio.name}</h3>
               </div>
-              {portfolio.href && (
-                <a href={portfolio.href} target="_blank" rel="noopener noreferrer"
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
-                  style={{ background: "var(--site-border)", color: "var(--site-text-2)" }}>
-                  <ArrowUpRight size={11} />
-                </a>
-              )}
+              {portfolio.href && <LinkBtn href={portfolio.href} name={portfolio.name} />}
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed flex-1 line-clamp-4">{portfolio.description}</p>
             <div className="flex flex-wrap gap-1">
@@ -140,24 +180,20 @@ export function WorkSection() {
             </div>
           </motion.div>
 
-          {/* IntelliLog — square (1 col) */}
+          {/* ── ROW 2 ── */}
+
+          {/* IntelliLog — project square */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-1 card-hover-glow rounded-2xl p-6 flex flex-col gap-3"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={projCardStyle}
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-text-3)" }}>Project</p>
-                <h3 className="font-serif text-base font-bold text-white leading-tight">{intellilog.name}</h3>
+                <ProjLabel />
+                <h3 className="font-serif text-base font-bold text-white mt-1 leading-tight">{intellilog.name}</h3>
               </div>
-              {intellilog.href && (
-                <a href={intellilog.href} target="_blank" rel="noopener noreferrer"
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
-                  style={{ background: "var(--site-border)", color: "var(--site-text-2)" }}>
-                  <ArrowUpRight size={11} />
-                </a>
-              )}
+              {intellilog.href && <LinkBtn href={intellilog.href} name={intellilog.name} />}
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed flex-1 line-clamp-4">{intellilog.description}</p>
             <div className="flex flex-wrap gap-1">
@@ -165,11 +201,11 @@ export function WorkSection() {
             </div>
           </motion.div>
 
-          {/* Talent4Assure — wide (2 col) */}
+          {/* Talent4Assure — wide experience */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-2 card-hover-glow rounded-2xl p-6 flex flex-col gap-4"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={expCardStyle}
           >
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
@@ -180,12 +216,12 @@ export function WorkSection() {
                   </div>
                 )}
                 <div>
-                  <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-accent)", opacity: 0.8 }}>Experience</p>
-                  <h3 className="font-serif text-lg font-bold text-white leading-tight">{t4a.company}</h3>
+                  <ExpLabel />
+                  <h3 className="font-serif text-lg font-bold text-white mt-1 leading-tight">{t4a.company}</h3>
                   <p className="font-serif italic text-sm text-neutral-400">{t4a.role}</p>
                 </div>
               </div>
-              <span className="text-xs font-mono text-neutral-600 flex-shrink-0">{t4a.period}</span>
+              <span className="text-xs font-mono text-neutral-600 flex-shrink-0 whitespace-nowrap">{t4a.period}</span>
             </div>
             <ul className="space-y-1.5 flex-1">
               {t4a.bullets.slice(0, 3).map((b, i) => (
@@ -200,24 +236,18 @@ export function WorkSection() {
             </div>
           </motion.div>
 
-          {/* Law Firm — wide (1 col) */}
+          {/* Law Firm — project square */}
           <motion.div
             variants={fadeInUp}
             className="md:col-span-1 card-hover-glow rounded-2xl p-6 flex flex-col gap-3"
-            style={{ background: "var(--site-card)", border: "1px solid var(--site-border)" }}
+            style={projCardStyle}
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "var(--site-text-3)" }}>Project</p>
-                <h3 className="font-serif text-base font-bold text-white leading-tight">{lawfirm.name}</h3>
+                <ProjLabel />
+                <h3 className="font-serif text-base font-bold text-white mt-1 leading-tight">{lawfirm.name}</h3>
               </div>
-              {lawfirm.href && (
-                <a href={lawfirm.href} target="_blank" rel="noopener noreferrer"
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
-                  style={{ background: "var(--site-border)", color: "var(--site-text-2)" }}>
-                  <ArrowUpRight size={11} />
-                </a>
-              )}
+              {lawfirm.href && <LinkBtn href={lawfirm.href} name={lawfirm.name} />}
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed flex-1 line-clamp-4">{lawfirm.description}</p>
             <div className="flex flex-wrap gap-1">
