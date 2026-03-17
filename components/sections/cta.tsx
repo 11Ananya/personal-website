@@ -4,15 +4,29 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { HERO } from "@/lib/data";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/motion";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export function CTASection() {
   return (
-    <section id="contact" className="relative overflow-hidden">
-      <AuroraBackground
-        className="h-auto py-32 md:py-40 bg-[var(--site-bg)] dark:bg-[var(--site-bg)]"
-        showRadialGradient
-      >
+    <section
+      id="contact"
+      className="relative site-bg py-32 md:py-40 overflow-hidden"
+    >
+      {/* Subtle dot grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      {/* Ambient blue glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 60% at 50% 60%, rgba(74,124,184,0.06) 0%, transparent 65%)",
+        }}
+      />
+
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <motion.div
           variants={staggerContainer}
@@ -98,7 +112,6 @@ export function CTASection() {
           </motion.div>
         </motion.div>
       </div>
-      </AuroraBackground>
     </section>
   );
 }
