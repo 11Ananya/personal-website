@@ -68,6 +68,34 @@ export function Footer() {
           <p className="text-xs text-neutral-600 font-mono">
             © 2026 Ananya Dabas. Built with Next.js & deployed on Vercel.
           </p>
+          {/* Webring */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://cs.uwatering.com/#https://personal-website-woad-five-55.vercel.app/?nav=prev"
+              className="text-xs text-neutral-600 hover:text-white transition-colors duration-200"
+            >
+              ←
+            </a>
+            <a
+              href="https://cs.uwatering.com/#https://personal-website-woad-five-55.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://cs.uwatering.com/icon.white.svg"
+                alt="UW CS Webring"
+                style={{ width: "16px", height: "auto", opacity: 0.4 }}
+                className="hover:opacity-100 transition-opacity duration-200"
+              />
+            </a>
+            <a
+              href="https://cs.uwatering.com/#https://personal-website-woad-five-55.vercel.app/?nav=next"
+              className="text-xs text-neutral-600 hover:text-white transition-colors duration-200"
+            >
+              →
+            </a>
+          </div>
           <p className="text-xs text-neutral-700 font-mono">
             adabas@uwaterloo.ca
           </p>
